@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+import logging
 from pathlib import Path
 from .config import *
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'ResultManagement.apps.ResultmanagementConfig',
     'AnswerManagement.apps.AnswermanagementConfig',
     'crispy_forms',
+    'crispy_bootstrap4',
     'matplotlib'
 ]
 
@@ -141,9 +143,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = EMAIL_ACC
-EMAIL_HOST_PASSWORD = PASSWORD
-
+EMAIL_HOST_USER = os.getenv('EMAIL_ACC', 'jadhavshrikrishna146@gmail.com')  # Replace with your Gmail address
+EMAIL_HOST_PASSWORD = os.getenv('PASSWORD', 'fyvk eiin njxd nkzt')  # The 16-character app password you generated
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL_ACTIVE_FIELD = 'is_active'
 # EMAIL_SERVER = 'smtp.gmail.com'
 # EMAIL_PORT = 587
@@ -155,6 +157,7 @@ EMAIL_HOST_PASSWORD = PASSWORD
 # EMAIL_MAIL_PLAIN = 'mail_body.txt'
 # EMAIL_PAGE_TEMPLATE = 'confirm_template.html'
 # EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000/'
+logging.basicConfig(level=logging.DEBUG)
 
 
 TEMPLATE_CONTEXT_PROCESSORS = (

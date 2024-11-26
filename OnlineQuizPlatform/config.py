@@ -1,3 +1,3 @@
 
-EMAIL_ACC = "onlinequizplatfom@gmail.com"
-PASSWORD = "@Cse2020"
+EMAIL_ACC = "jadhavshrikrishna146@gmail.com"
+PASSWORD = "@Cse2024"
